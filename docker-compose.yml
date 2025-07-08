@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  collector:
+    build: ./collector
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./data:/app/db  # Shared volume for SQLite DB
+  api:
+    build: ./api
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./data:/app/db  # Shared volume for SQLite DB
+volumes:
+  data:

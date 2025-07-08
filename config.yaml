@@ -1,0 +1,5 @@
+github:
+  token: "${GITHUB_TOKEN}"  # Loaded from environment
+repositories:
+  - "maheshkaki/weatherReport"
+interval: 300  # Fetch every 5 minutes
